@@ -1,0 +1,21 @@
+.logo{
+
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.nav{
+display: flex;
+flex-grow: 1;
+}
+
+.navList{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.listItem{
+  color: white;
+}
