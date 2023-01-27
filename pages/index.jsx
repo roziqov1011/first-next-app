@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router'
+import car2 from '../public/car2.jpeg'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,11 +39,20 @@ export default function Home() {
               height={31}
               priority
             />
+
+           
           </div>
         </div>
 
         
       </main>
+      <Image
+              src={car2}
+              width={800}
+              height={400}
+              alt='rasml'
+                placeholder="blur"
+              />
     </>
   )
 }
