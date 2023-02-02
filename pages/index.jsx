@@ -4,12 +4,27 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router'
 import car2 from '../public/car2.jpeg'
+import { getSession, signIn, signOut } from 'next-auth/client'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
-  const rr = useRouter()
-  console.log(rr.pathname);
+export const getServerSideProps = async (context) => {
+  const session = await getSession(context);
+  return {
+    props: {
+      session,
+    },
+  }
+}
+
+export default function Home({session}) {
+
+
+// Expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
+
+
+
+
+
   return (
     <>
       <Head>
@@ -21,6 +36,21 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         
+        {
+          session ? 
+            <button onClick={()=> signOut()}>accountdan ciqish</button> :
+            <button onClick={()=> signIn()}>accountga kirish</button>
+        }
+
+        {
+          session && (
+            <>
+            <h1>{ session.user.email}</h1>
+              <h1>{session.user.name}</h1>
+              <img src={session.user.image} alt={session.user.name} />
+            </>
+            )
+        }
 
         <div className={styles.center}>
           <Image
