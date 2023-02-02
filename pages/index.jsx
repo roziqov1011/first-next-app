@@ -22,9 +22,6 @@ export default function Home({session}) {
 // Expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
 
 
-
-
-
   return (
     <>
       <Head>
